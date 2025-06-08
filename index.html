@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conversor de Moedas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de Moedas</h1>
+    <div class="formulario">
+      <input type="number" id="valor" placeholder="Valor a converter" />
+
+      <div class="select-group">
+        <select id="moeda-origem"></select>
+        <span>➡️</span>
+        <select id="moeda-destino"></select>
+      </div>
+
+      <button id="botao-converter">Converter</button>
+    </div>
+
+    <p id="resultado"></p>
+  </div>
+
+  <footer class="rodape">
+  Projeto de portfólio desenvolvido por <strong><a href="https://github.com/gustavorabutske" target="_blank">Rabutske</a></strong> 💻
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
