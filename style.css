@@ -1,63 +1,223 @@
+/* 1. Reset e Variáveis Globais */
+:root {
+    --bg-color: #1a1a2e;
+    --card-color: #16213e;
+    --primary-color: #0f3460;
+    --accent-color: #e94560;
+    --text-color: #ffffff;
+    --subtle-text-color: #a0a0d0;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.container {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
+/* 2. Layout Principal */
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-h1 {
-  margin-bottom: 1.5rem;
-  color: #333;
+.app-header h1 {
+    color: var(--text-color);
+    font-weight: 700;
 }
 
-input, select, button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.card {
+    background-color: var(--card-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-left: 4px solid var(--accent-color);
 }
 
-button:hover {
-  background-color: #45a049;
+.card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* 3. Estilos do Formulário do Conversor */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: var(--subtle-text-color);
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+}
+
+.select-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.select-group .input-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+#botao-trocar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 15px; /* Alinha com os selects */
+}
+
+#botao-trocar svg {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+#botao-trocar:hover svg {
+    transform: rotate(180deg);
+}
+
+#botao-converter {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#botao-converter:hover {
+    background-color: #d43d51;
+    transform: translateY(-2px);
 }
 
 #resultado {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #444;
-  margin-top: 1rem;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    min-height: 25px; /* Evita que o layout "pule" */
 }
 
-footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #777;
+/* 4. Estilos da Seção de Cotações */
+.cotacoes-container #lista-cotacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cotacao-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    font-size: 0.95em;
+}
+
+.cotacao-item span:first-child {
+    font-weight: 500;
+    color: var(--subtle-text-color);
+}
+
+.cotacao-item span:last-child {
+    font-weight: 700;
+}
+
+/* 5. Rodapé */
+.rodape {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: var(--subtle-text-color);
+    text-align: center;
+}
+
+.rodape a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.rodape a:hover {
+    text-decoration: underline;
+}
+
+/* 6. Responsividade para Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .app-header h1 {
+        font-size: 1.5em;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+.rodape a:hover {
+    text-decoration: underline;
+}
+
+/* ESTILO ADICIONADO PARA O AVISO */
+.rodape .aviso-api {
+    font-size: 0.8em; /* Deixa a fonte um pouco menor */
+    margin-top: 8px; /* Adiciona um pequeno espaço acima */
+    max-width: 450px; /* Limita a largura em telas grandes */
+    margin-left: auto;
+    margin-right: auto;
 }
