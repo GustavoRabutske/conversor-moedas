@@ -2,6 +2,7 @@
 
 Um conversor de moedas moderno feito com **HTML, CSS e JavaScript**, utilizando a [Frankfurter API](https://www.frankfurter.app/) para conversões em tempo real entre centenas de moedas.
 
+Teste aqui: https://gustavorabutske.github.io/conversor-moedas/
 ---
 
 ## ✨ Funcionalidades
